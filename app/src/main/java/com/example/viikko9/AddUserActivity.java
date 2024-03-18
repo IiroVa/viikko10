@@ -1,5 +1,6 @@
 package com.example.viikko9;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -32,7 +33,7 @@ public class AddUserActivity extends AppCompatActivity {
     }
 
     public void addUser(View view){
-
+        Context context;
         firstName = findViewById(R.id.editFirstName);
         lastName = findViewById(R.id.editLastName);
         email = findViewById(R.id.editEmail);
@@ -41,6 +42,7 @@ public class AddUserActivity extends AppCompatActivity {
         degreeProgram = findViewById(degreePrograms.getCheckedRadioButtonId());
 
         UserStorage.getInstance().addUser(new User(String.valueOf(firstName.getText()), String.valueOf(lastName.getText()), String.valueOf(email.getText()), String.valueOf(degreeProgram.getText())));
-
+        context = this;
+        UserStorage.getInstance().saveUsers(context);
     }
 }
