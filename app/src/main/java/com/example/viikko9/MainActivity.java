@@ -26,9 +26,8 @@ public class MainActivity extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             context = this;
-            if(UserStorage.getInstance().getUsers().size()!=0) {
-                UserStorage.getInstance().loadUsers(context);
-            }
+            UserStorage.getInstance().loadUsers(context);
+
             return insets;
         });
     }
@@ -40,18 +39,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void switchtoListUser(View view){
-        Intent intent = new Intent(this,ListUserInRecycleViewActivity.class);
+        Intent intent = new Intent(this, ListUserActivity.class);
         startActivity(intent);
     }
-/*
-    public void loadUser(View view){
-        Context context;
-        btnLoad = findViewById(R.id.btnLoadUsers);
-        context = this;
-        UserStorage.getInstance().loadUsers(context);
 
-    }
-*/
 
 
 
