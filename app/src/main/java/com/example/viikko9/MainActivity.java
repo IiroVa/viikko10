@@ -26,7 +26,9 @@ public class MainActivity extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             context = this;
-            UserStorage.getInstance().loadUsers(context);
+            if(UserStorage.getInstance().getUsers().size()!=0) {
+                UserStorage.getInstance().loadUsers(context);
+            }
             return insets;
         });
     }
