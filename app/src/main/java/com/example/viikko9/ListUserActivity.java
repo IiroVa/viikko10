@@ -10,6 +10,10 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
 public class ListUserActivity extends AppCompatActivity {
 
     private UserStorage userStorage;
@@ -29,7 +33,15 @@ public class ListUserActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.rvUserView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new UserListAdapter(getApplicationContext(), userStorage.getUsers()));
+        ArrayList<User> users = new ArrayList<>();
+        users = UserStorage.getInstance().getUsers();
+        Collections.sort(users, new Comparator<User>() {
+            @Override
+            public int compare(User o1, User o2) {
+                return o1.getLastName().compareToIgnoreCase(o2.getLastName());
+            }
+        });
+        recyclerView.setAdapter(new UserListAdapter(getApplicationContext(), users));
     }
 
 
