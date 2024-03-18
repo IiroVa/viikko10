@@ -41,6 +41,17 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this,ListUserInRecycleViewActivity.class);
         startActivity(intent);
     }
+/*
+    public void loadUser(View view){
+        Context context;
+        btnLoad = findViewById(R.id.btnLoadUsers);
+        context = this;
+        UserStorage.getInstance().loadUsers(context);
+
+    }
+*/
+
+
 
 
 
