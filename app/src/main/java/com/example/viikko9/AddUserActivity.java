@@ -64,7 +64,7 @@ public class AddUserActivity extends AppCompatActivity {
         for (int i = 0; i < degree.size(); i++) {
             str.append(degree.get(i));
             if (i < degree.size() - 1) {
-                str.append(",");
+                str.append(", ");
             }
         }
         //Log.d("OMA",str.toString());
